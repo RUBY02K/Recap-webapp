@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recap Login Website</title>
+    <link rel="stylesheet" href="styler.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container" id="signup">
+        <img src="logo.jpg" width="200" height50px alt="oops wait a moment" id="logo">
+
+        <h2>START YOUR RECAP JOURNEY WITH US NOW </h2>
+        <form id="form" action="" method="post">
+            <div id="loginmsg" class="messageDiv" style="display: none;"></div>
+            <div class="form-group">
+                <input type="email" id="email" required>
+                <label for="email"> EMAIL </label>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <p> OR </p>
+            <div class="form-group">
+                <input type="number" id="number" required>
+                <label for=" number"> PHONE NUMBER </label>
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <P><input type="checkbox" id="Notify"> Notify me for more updates</P>
+            <div class="btn">
+                <p>
+                    <input id="btn" type="button" value="continue">
+                </p> <br>
+            </div>
+
+        </form>
+    </div>
+    <div id="continue" class="messageDiv" style="display: none;"></div>
+    <div class="container" id="thanks" class="thanks" style="display:none;">
+        <img src="logo.jpg" width="200" height50px alt="oops wait a moment" id="logo">thanks you for registration we
+        will update you as soon as the app launches
+        <i class="fa-solid fa-smile"></i>
+
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        //  web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCGix0yQw9-ppoo7z0rWsE7H4P3I6fe-BQ",
+            authDomain: "recap-e50da.firebaseapp.com",
+            databaseURL: "https://recap-e50da-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "recap-e50da",
+            storageBucket: "recap-e50da.appspot.com",
+            messagingSenderId: "673873975407",
+            appId: "1:673873975407:web:a41eef0f743d402f3a959a"
+        };
+
+        // Initialize Firebase 
+        const app = initializeApp(firebaseConfig);
+        // Get a refrence to the datbase 
+        const db = getDatabase(app);
+
+        document.getElementById("btn").addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Values frm the form
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("number").value;
+            var notify = document.getElementById("Notify").checked;
+
+            // Create the new record object
+            var newData = {
+                email: email,
+                phoneNumber: phoneNumber,
+                notify: notify
+            };
+
+            // Push a new entry to 'user1' node with auto-generated unique key
+            push(ref(db, 'user1'), newData)
+                .then(() => {
+                    // Clear the form fields if needed
+                    document.getElementById("email").value;
+                    document.getElementById("number").value;
+                    document.getElementById("Notify").checked = false;
+
+                    // Show thank you message and hide the form
+                    document.getElementById('signup').style.display = 'none';
+                    document.getElementById('thanks').style.display = 'block';
+                    alert("Login successful!");
+                })
+                .catch((error) => {
+                    console.error("Error adding document: ", error);
+                });
+        });
+    </script>
+</body>
+
+</html>
