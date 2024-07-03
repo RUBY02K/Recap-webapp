@@ -1,0 +1,172 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+font-family: sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+     background: url(backform.jpg) no-repeat;
+     background-position: center;
+     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.container
+{
+
+width: 400px;
+height: 500px;
+background-color: rgba(0,0green,o blue,0.3 alpha);
+backdrop-filter:blur(5px);
+border-radius: 40px;
+border: 3px solid rgba(255,255green, 255blue, 0.3alpha);
+box-shadow: 0 0 30px rgba(0,0green,0 blue,0.5 alpha);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+}
+#logo {
+    backdrop-filter:blur(10px) ;
+    display: flex;
+    background-color: transparent;
+}
+h2{ 
+    color: white;
+    text-transform: capitalize;
+    padding: 20px 0px;
+    font-size: 2em;
+    position: relative;
+    align-content: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    justify-content:center;
+    text-align: center;
+
+}
+.form-group
+{
+    position: relative;
+    background-color: rgb(173, 169, 169,0.3 );
+    width: 350px;
+    margin:20px 0;
+  
+    justify-items: center;
+    
+}
+.form-group input{
+    width: 90%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    color: white;
+    padding: 0 30px 0 10px;
+    justify-items: center;
+} .form-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform:translateY(-50%);
+    font-size: 1.1em;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+}
+input:focus ~ label,
+input:valid ~ label
+{
+    top: -8px;
+}
+
+.form-group i {
+    position: absolute; /* Position the icon absolutely within its relative container */
+    top: 50%; /* Move the icon 50% down from the top of the container */
+    left: 320px; /* Adjust the left position as needed */
+    transform: translateY(-50%); /* Center the icon vertically */
+    color: black; /* Icon color */
+    font-size: 1.2em; /* Icon font size */
+}
+
+
+p{
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+     font-weight: 600;
+
+}
+p>a{
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+#checkbox:hover
+{
+    text-decoration:underline ;
+    font-style:italic ;
+
+}
+#btn
+{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5em; 
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+ 
+
+    
+}
+#btn:hover{
+    background-color: rgba(0,0green,o blue,0.3 alpha);
+    color: white;
+
+}
+    #thanks {
+         /* Initially hide the container */
+        text-align:center; /* Center align text */
+        padding: 20px; /* Add padding */
+        border: 5px ;
+        margin-top: 200px; /* Add some space at the top */
+        background-color: transparent; /* Background color */
+        font-size: larger;
+        font-weight: 800;
+        color: #f0f0f0;
+        text-transform: capitalize;
+
+        
+    }
+    
+    #thanks img {
+        display: block; /* Ensure the logo image is block level */
+        margin: 10px auto 20px; /* Center align the logo and add some space below */
+
+    }
+    #thanks i {
+        color: yellow;
+        margin: 80px;
+        font-size: 3em; 
+    }
+    .messageDiv {
+        background-color:red;
+        color: white;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius:5px;
+        font-size: 1rem;
+        opacity: 0;
+        animation: fadeout 7s  forwards;
+
+    }
+
